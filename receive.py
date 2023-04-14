@@ -15,8 +15,6 @@ while (a == 3):
         y = x.decode('UTF-8')
         z = str(y)
         a = a + 1
-    
-
 
 if str (z) == "1":
     msg = "Vazamento"
@@ -25,8 +23,8 @@ if str (z) == "1":
 if str(z) == "0":
     msg = "Sem vazamento"
     print(msg)
-
-os.chdir("Desktop/IC")
+# path to directory, try to clone the repo in your (~/) main
+os.chdir("TESTE/")
 
 arquivo = open('response.txt', 'w+')
 arquivo.writelines(msg)
