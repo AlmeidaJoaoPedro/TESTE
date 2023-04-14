@@ -16,7 +16,7 @@ resize = (960,540)
 
 img_resize = cv.resize(img, resize)
 
-img_color = cv.applyColorMap(img, cv.COLORMAP_JET )
+img_color = cv.applyColorMap(img, cv.COLORMAP_JET)
 color_resize = cv.resize(img_color, resize)
 color2hsv = cv.cvtColor(color_resize, cv.COLOR_BGR2HSV)
 
@@ -30,10 +30,13 @@ upper_orange = np.array([25, 255, 255])
 mask2 = cv.inRange(color2hsv, lower_orange, upper_orange)
 
 mask_red = cv.bitwise_and(color_resize,color_resize, mask= mask1)
+# mask_orange = cv.bitwise_and(color_resize,color_resize, mask= mask2)
 
-# cropped_image = mask1[120:300, 450:700]
-cropped_image = mask1[360:540, 0:960]
 
+cropped_image = mask1[150:540, 450:650]
+# cropped_image = mask2[150:540, 450:650]
+
+cv.imshow('frame', cropped_image)
 list_mask1 = cropped_image.ravel().tolist()
 # print(list_mask1)
 
@@ -52,4 +55,3 @@ ser.write(x.encode("UTF-8"))
 
 cv.waitKey(0)
 cv.destroyAllWindows()
-
